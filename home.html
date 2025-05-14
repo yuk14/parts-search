@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Part Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="path/to/header-image.jpg" alt="Company Logo" class="header-image">
+    </header>
+
+    <main class="home-page">
+        <div class="title">
+            <h1>XXXX BASE</h1>
+            <h2>AUTO PART SEARCH</h2>
+        </div>
+
+        <form id="searchForm">
+            <label for="make">Select Make:</label>
+            <select id="make" name="make">
+                <!-- Options will be populated via JS -->
+            </select>
+
+            <label for="vin">Enter VIN (first 12 digits):</label>
+            <input type="text" id="vin" name="vin" maxlength="12" required>
+
+            <button type="submit">Submit</button>
+            <p id="error" class="error-message"></p>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

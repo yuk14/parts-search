@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="path/to/header-image.jpg" alt="Company Logo" class="header-image">
+    </header>
+
+    <main class="detail-page">
+        <div class="title">
+            <h2>VIN DETAILS</h2>
+        </div>
+
+        <div class="details">
+            <p><strong>VIN:</strong> <span id="vinDetail"></span></p>
+            <p><strong>Make:</strong> <span id="makeDetail"></span></p>
+            <p><strong>Model:</strong> <span id="modelDetail"></span></p>
+            <p><strong>Fuel Type:</strong> <span id="fuelDetail"></span></p>
+            <p><strong>Year:</strong> <span id="yearDetail"></span></p>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="goHome()" class="nav-left">Back</button>
+            <button onclick="goPart()" class="nav-right">Next</button>
+        </div>
+    </main>
+
+    <script>
+        // Example: Replace with real logic or localStorage
+        document.getElementById('vinDetail').textContent = localStorage.getItem('vin') || '---';
+        document.getElementById('makeDetail').textContent = localStorage.getItem('make') || '---';
+        document.getElementById('modelDetail').textContent = localStorage.getItem('model') || '---';
+        document.getElementById('fuelDetail').textContent = localStorage.getItem('fuel') || '---';
+        document.getElementById('yearDetail').textContent = localStorage.getItem('year') || '---';
+
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+
+        function goPart() {
+            window.location.href = 'part.html';
+        }
+    </script>
+</body>
+</html>

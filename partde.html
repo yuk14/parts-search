@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="path/to/header-image.jpg" alt="Company Logo" class="header-image">
+    </header>
+
+    <main class="part-page">
+        <div class="vin-display">
+            <strong>VIN:</strong> <span id="fullVin"></span>
+        </div>
+
+        <div class="model-select">
+            <label for="modelChoice">Select Model:</label>
+            <select id="modelChoice">
+                <!-- Populated via JS -->
+            </select>
+        </div>
+
+        <div class="parts-list">
+            <h3>Parts</h3>
+            <ul id="partsContainer">
+                <!-- Parts will be listed here -->
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        const vin = localStorage.getItem('vin') || '---';
+        const models = (localStorage.getItem('model') || '').split(',');
+        const fasCode = localStorage.getItem('fas') || '';
+
+        document.getElementById('fullVin').textContent = vin;
+
+        const modelChoice = document.getElementById('modelChoice');
+        models.forEach(m => {
+            const opt = document.createElement('option');
+            opt.value = m;
+            opt.textContent = m;
+            modelChoice.appendChild(opt);
+        });
+
+        modelChoice.addEventListener('change', function () {
+            const selectedModel = this.value;
+
+            // TODO: Fetch parts based on selectedModel & fasCode from Excel
+            const parts = [
+                { partNo: '1234-AB', description: 'Engine Filter' },
+                { partNo: '5678-CD', description: 'Oil Filter' }
+            ]; // example data
+
+            const container = document.getElementById('partsContainer');
+            container.innerHTML = '';
+            parts.forEach(part => {
+                const li = document.createElement('li');
+                li.textContent = `${part.partNo} - ${part.description}`;
+                container.appendChild(li);
+            });
+        });
+
+        modelChoice.dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>
