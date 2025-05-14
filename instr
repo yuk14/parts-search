@@ -1,0 +1,13 @@
+To Run:
+
+    Install dependencies
+npm install express cors multer xlsx
+
+Replace file paths in makeFiles and partsFile.
+
+Start server:node server.js
+Your frontend can now use:
+
+    POST /search to get vehicle details
+
+    POST /parts to get parts list
